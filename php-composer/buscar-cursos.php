@@ -1,21 +1,18 @@
 <?php
 
 require 'vendor/autoload.php';
+require 'src/Finder.php';
 
+use Alura\BuscadorDeCursos\Finder;
 use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
-$client = new Client();
-$response = $client->request('GET', 'https://www.alura.com.br/cursos-online-programacao/php');
-
-$html = $response->getBody();
-
-/* Instanciando o Crawler */
+$client = new Client(['base_uri' => 'https://www.alura.com.br']);
 $crawler = new Crawler();
-$crawler->addHtmlContent($html);
 
-$coursers = $crawler->filter('span.card-curso__nome');
+$searchEngine = new Finder($client, $crawler);
+$coursers = $searchEngine->find('/cursos-online-programacao/php');
 
 foreach ($coursers as $key => $course) {
-  echo $course->textContent . PHP_EOL;
+  echo $course . PHP_EOL;
 }
