@@ -1,13 +1,17 @@
 {
-    "name": "danilorighetto/buscador-cursos",
-    "description": "Projeto que busca os projetos no site da Alura",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Danilo Righetto",
-            "email": "danilorighetto@hotmail.com"
-        }
-    ],
-    "require": {}
+  "name": "danilorighetto/buscador-cursos",
+  "description": "Projeto que busca os projetos no site da Alura",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Danilo Righetto",
+      "email": "danilorighetto@hotmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.7",
+    "symfony/dom-crawler": "^6.3",
+    "symfony/css-selector": "^6.3"
+  }
 }
