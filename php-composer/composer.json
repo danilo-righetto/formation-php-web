@@ -1,0 +1,13 @@
+{
+    "name": "danilorighetto/buscador-cursos",
+    "description": "Projeto que busca os projetos no site da Alura",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Danilo Righetto",
+            "email": "danilorighetto@hotmail.com"
+        }
+    ],
+    "require": {}
+}
