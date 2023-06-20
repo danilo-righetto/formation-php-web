@@ -39,5 +39,8 @@
   },
   "scripts-descriptions": {
     "check": "Runs code checks, PHAN, PHPCS and PHPUNIT"
-  }
+  },
+  "bin": [
+    "buscar-cursos.php"
+  ]
 }
