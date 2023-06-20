@@ -72,5 +72,5 @@ O Phan é uma ferramenta que verifica possíveis erros no código e ajuda o dese
 Para isso após a instalação, é possível executar o Phan com o seguinte comando:
 
 ```sh
-vendor\bin\phan --allow-polyfill-parser src\Finder.php
+vendor\bin\phan --allow-polyfill-parser src/
 ```
