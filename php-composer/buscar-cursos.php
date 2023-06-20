@@ -1,10 +1,9 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'src/Finder.php';
 
-use Alura\BuscadorDeCursos\Finder;
 use GuzzleHttp\Client;
+use Alura\BuscadorDeCursos\Finder;
 use Symfony\Component\DomCrawler\Crawler;
 
 $client = new Client(['base_uri' => 'https://www.alura.com.br']);

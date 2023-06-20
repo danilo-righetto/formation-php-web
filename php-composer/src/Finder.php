@@ -2,7 +2,6 @@
 
 namespace Alura\BuscadorDeCursos;
 
-use GuzzleHttp\Client;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
