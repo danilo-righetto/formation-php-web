@@ -43,3 +43,18 @@ $parameters = array_filter(
   fn (ReflectionParameter $parameter) => !$parameter->isOptional()
 );
 var_dump($parameters);
+
+
+$reflectionClass = new ReflectionClass(ClasseExemplo::class);
+
+$propriedadePrivada = $reflectionClass->getProperty('propriedadePrivada');
+
+if (!$propriedadePrivada->isPublic()) {
+    $propriedadePrivada->setAccessible(true);
+}
+
+var_dump($propriedadePrivada->getValue($reflectionClass->newInstanceWithoutConstructor()));
+
+$reflectionMethod = $reflectionClass->getMethod('metodoProtegido');
+$reflectionMethod->setAccessible(true);
+var_dump($reflectionMethod->invoke($reflectionClass->newInstanceWithoutConstructor()));
