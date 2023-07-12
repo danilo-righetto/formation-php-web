@@ -58,6 +58,22 @@ class SeriesController extends Controller
   {
     $series->delete();
     // Serie::destroy($request->series);
-    return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}'removida com sucesso");
+    return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}' removida com sucesso");
+  }
+
+  public function edit(Serie $series)
+  {
+    return view('series.edit')->with('series', $series);
+  }
+
+  public function update(Serie $series, Request $request)
+  {
+    $series->nome = $request->nome;
+    $series->save();
+
+    /* Caso seja interessante utilizar o 'mass assignment' do Laravel o código abaixo será util */
+    // $series->fill($request->all());
+
+    return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}' editada com sucesso");
   }
 }

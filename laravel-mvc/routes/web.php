@@ -22,9 +22,7 @@ Route::get('/ola', function () {
   echo 'Olá, Mundo!';
 });
 
-Route::resource('/series', SeriesController::class)->only(['index', 'create', 'store']);
-
-Route::post('/series/destroy/{serie}', [SeriesController::class, 'destroy'])->name('serie.destroy');
+Route::resource('/series', SeriesController::class)->except(['show']);
 
 // Route::controller(SeriesController::class)->group(function () {
 //   Route::get('/series', 'index')->name('series.index');
