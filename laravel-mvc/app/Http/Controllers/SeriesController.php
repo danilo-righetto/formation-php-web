@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
     // $series = [
     //     'Punisher',
@@ -18,8 +18,8 @@ class SeriesController extends Controller
 
     // $series = DB::select('SELECT nome FROM series;');
     $series = Serie::query()->orderBy('nome')->get();
-
-    return view('series.index')->with('series', $series);
+    $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+    return view('series.index')->with('series', $series)->with('mensagemSucesso', $mensagemSucesso);
   }
 
   public function create()
@@ -44,13 +44,20 @@ class SeriesController extends Controller
     // $serie->save();
 
     /* Outra forma de registrar uma Serie no banco e mais enxuta é essa */
-    Serie::create($request->all());
+    $serie = Serie::create($request->all());
 
     /* Para trazer todos os dados de uma requisição com exceção de um ou mais
     campos utilize:
     $request->except(['_token']);
     */
 
-    return to_route('series.index');
+    return to_route('series.index')->with('mensagem.sucesso', "Série '{$serie->nome}' adicionada com sucesso");
+  }
+
+  public function destroy(Serie $series, Request $request)
+  {
+    $series->delete();
+    // Serie::destroy($request->series);
+    return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}'removida com sucesso");
   }
 }
