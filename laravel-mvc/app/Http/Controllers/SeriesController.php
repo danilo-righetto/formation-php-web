@@ -44,6 +44,9 @@ class SeriesController extends Controller
     // $serie->save();
 
     /* Outra forma de registrar uma Serie no banco e mais enxuta é essa */
+    $request->validate([
+      'nome' => ['required', 'min:3']
+    ]);
     $serie = Serie::create($request->all());
 
     /* Para trazer todos os dados de uma requisição com exceção de um ou mais
