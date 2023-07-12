@@ -70,6 +70,12 @@ npm install laravel-mix --save-dev
 npm run mix
 ```
 
+## Turn On the Serve
+
+```sh
+php artisan serve --host=0.0.0.0 --port=8080
+```
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

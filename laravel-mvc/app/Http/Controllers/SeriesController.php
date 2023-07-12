@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Serie;
 use Illuminate\Http\Request;
+use App\Http\Requests\SeriesFormRequest;
 use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
@@ -27,7 +28,7 @@ class SeriesController extends Controller
     return view('series.create');
   }
 
-  public function store(Request $request)
+  public function store(SeriesFormRequest $request)
   {
     // $nomeSerie = $request->input('nome');
 
@@ -44,9 +45,6 @@ class SeriesController extends Controller
     // $serie->save();
 
     /* Outra forma de registrar uma Serie no banco e mais enxuta é essa */
-    $request->validate([
-      'nome' => ['required', 'min:3']
-    ]);
     $serie = Serie::create($request->all());
 
     /* Para trazer todos os dados de uma requisição com exceção de um ou mais
@@ -69,7 +67,7 @@ class SeriesController extends Controller
     return view('series.edit')->with('series', $series);
   }
 
-  public function update(Serie $series, Request $request)
+  public function update(Serie $series, SeriesFormRequest $request)
   {
     $series->nome = $request->nome;
     $series->save();
