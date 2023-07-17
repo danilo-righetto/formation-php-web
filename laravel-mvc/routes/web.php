@@ -31,8 +31,7 @@ Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])->nam
 
 Route::get('/series/{series}/episodes', [EpisodesController::class, 'index'])->name('episodes.index');
 
-Route::post('/series/{series}/episodes', function (Request $request) {
-});
+Route::post('/series/{series}/episodes', [EpisodesController::class, 'update'])->name('episodes.update');
 
 // Route::controller(SeriesController::class)->group(function () {
 //   Route::get('/series', 'index')->name('series.index');
