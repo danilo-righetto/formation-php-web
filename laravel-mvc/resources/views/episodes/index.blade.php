@@ -4,7 +4,7 @@
         {{ $mensagemSucesso }}
     </div>
     @endisset
-    <form action="{{}}" method="post">
+    <form method="post">
         @csrf
         <ul class="list-group">
             @foreach ($episodes as $episode)

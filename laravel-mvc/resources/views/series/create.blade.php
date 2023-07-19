@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">{{$btname}}</button>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
     </form>
 
 </x-layout>
